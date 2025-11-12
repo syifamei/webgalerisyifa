@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Cache - Admin Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Cache Cleared!</h1>
+    <p>Sekarang buka halaman admin:</p>
+    <a href="/syifa/public/admin/login" style="font-size: 20px; color: blue;">Klik Disini ke Admin Login</a>
+    
+    <script>
+        // Force clear cache
+        if ('caches' in window) {
+            caches.keys().then(function(names) {
+                for (let name of names) caches.delete(name);
+            });
+        }
+        console.log('Cache cleared!');
+    </script>
+</body>
+</html>
