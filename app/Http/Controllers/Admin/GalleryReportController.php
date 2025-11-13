@@ -16,12 +16,15 @@ class GalleryReportController extends Controller
     {
         $period = $request->query('period', 'all'); // all, weekly, monthly
 
-        // Get all photos with likes and download logs
+        // Get all photos with likes and download logs (only from active categories)
         $query = Foto::with([
             'kategori', 
             'likes',
             'downloadLogs'
-        ])->where('status','Aktif');
+        ])->where('status','Aktif')
+        ->whereHas('kategori', function($q) {
+            $q->where('status', 'Aktif');
+        });
 
         // Apply period filter
         if ($period === 'weekly') {
@@ -132,7 +135,11 @@ class GalleryReportController extends Controller
             $startDate = now()->subMonth();
         }
 
-        $query = Foto::with(['likes', 'downloadLogs'])->where('status','Aktif');
+        $query = Foto::with(['likes', 'downloadLogs'])
+            ->where('status','Aktif')
+            ->whereHas('kategori', function($q) {
+                $q->where('status', 'Aktif');
+            });
         if ($startDate) {
             $query->where('created_at', '>=', $startDate);
         }
@@ -169,9 +176,12 @@ class GalleryReportController extends Controller
     {
         $period = $request->query('period', 'all'); // all, weekly, monthly
         
-        // Get photos with their statistics
+        // Get photos with their statistics (only from active categories)
         $query = Foto::with(['kategori', 'likes', 'downloadLogs'])
             ->where('status', 'Aktif')
+            ->whereHas('kategori', function($q) {
+                $q->where('status', 'Aktif');
+            })
             ->orderBy('created_at', 'desc');
             
         // Apply period filter
@@ -215,9 +225,10 @@ class GalleryReportController extends Controller
             $totalDownloads += $foto->downloads_count_period;
         }
 
-        // Calculate per kategori
+        // Calculate per kategori (only active categories)
         $kategoris = Kategori::with('fotos')->where('status', 'Aktif')->get();
         $kategoriStats = $kategoris->map(function($kategori) use ($period) {
+            // Only count active photos
             $fotosInKategori = $kategori->fotos->where('status', 'Aktif');
             
             $totalLikes = 0;

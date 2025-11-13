@@ -103,7 +103,7 @@
             <div class="content-body">
                 @if($recentFotos->count() > 0)
                 <div class="gallery-grid">
-                    @foreach($recentFotos->take(4) as $foto)
+                    @foreach($recentFotos->take(2) as $foto)
                     <div class="gallery-item">
                         <div class="gallery-image">
                             <img src="{{ asset('storage/' . $foto->path) }}" alt="{{ $foto->judul }}">
@@ -151,7 +151,7 @@
             <div class="content-body">
                 @if(isset($recentAgenda) && $recentAgenda->count() > 0)
                 <div class="agenda-list">
-                    @foreach($recentAgenda->take(4) as $agenda)
+                    @foreach($recentAgenda->take(2) as $agenda)
                     <div class="agenda-item">
                         <div class="agenda-icon">
                             <i class="fas fa-calendar-check"></i>
@@ -188,7 +188,7 @@
             <div class="content-body">
                 @if(isset($recentInformasi) && $recentInformasi->count() > 0)
                 <div class="agenda-list">
-                    @foreach($recentInformasi->take(4) as $informasi)
+                    @foreach($recentInformasi->take(2) as $informasi)
                     <div class="agenda-item">
                         <div class="agenda-icon" style="background: linear-gradient(135deg, #fd7e14, #e76300);">
                             <i class="fas fa-info-circle"></i>

@@ -25,6 +25,10 @@ class GaleriController extends Controller
             // Data is retrieved directly from foto_likes table
             ->withCount('likes as likes_count')
             ->where('status', 'Aktif')
+            // Filter: Hanya tampilkan foto dari kategori yang aktif
+            ->whereHas('kategori', function($q) {
+                $q->where('status', 'Aktif');
+            })
             ->when($user, function($q) use ($user) {
                 // Load only current user's like status (to determine if they liked it)
                 $q->with(['likes' => function($query) use ($user) {

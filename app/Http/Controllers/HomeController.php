@@ -21,6 +21,10 @@ class HomeController extends Controller
 
         // Latest active photos for homepage gallery
         $fotosTerbaru = Foto::where('status', 'Aktif')
+            // Filter: Hanya tampilkan foto dari kategori yang aktif
+            ->whereHas('kategori', function($q) {
+                $q->where('status', 'Aktif');
+            })
             ->orderBy('created_at', 'desc')
             ->take(9)
             ->get();
@@ -49,7 +53,11 @@ class HomeController extends Controller
             ->withCount(['comments as comments_count' => function($query) {
                 $query->where('status', 'approved');
             }])
-            ->where('status', 'Aktif');
+            ->where('status', 'Aktif')
+            // Filter: Hanya tampilkan foto dari kategori yang aktif
+            ->whereHas('kategori', function($q) {
+                $q->where('status', 'Aktif');
+            });
 
         // Filter berdasarkan kategori
         if ($request->has('kategori') && $request->kategori) {

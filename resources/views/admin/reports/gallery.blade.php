@@ -290,15 +290,9 @@
                 <tr>
                     <td class="text-center">{{ $index + 1 }}</td>
                     <td><strong>{{ $stat['nama'] }}</strong></td>
-                    <td class="text-center">
-                        <span class="badge badge-info">{{ $stat['total_fotos'] }}</span>
-                    </td>
-                    <td class="text-center">
-                        <span class="badge badge-success">{{ $stat['total_likes'] }}</span>
-                    </td>
-                    <td class="text-center">
-                        <span class="badge badge-warning">{{ $stat['total_downloads'] }}</span>
-                    </td>
+                    <td class="text-center">{{ $stat['total_fotos'] }}</td>
+                    <td class="text-center">{{ $stat['total_likes'] }}</td>
+                    <td class="text-center">{{ $stat['total_downloads'] }}</td>
                 </tr>
                 @empty
                 <tr>
@@ -312,8 +306,8 @@
                 <tr>
                     <td colspan="2" class="text-right"><strong>TOTAL KESELURUHAN:</strong></td>
                     <td class="text-center"><strong>{{ $totalPhotos }} foto</strong></td>
-                    <td class="text-center"><strong style="color: #10b981;">{{ $totalLikes }}</strong></td>
-                    <td class="text-center"><strong style="color: #f59e0b;">{{ $totalDownloads }}</strong></td>
+                    <td class="text-center"><strong>{{ $totalLikes }}</strong></td>
+                    <td class="text-center"><strong>{{ $totalDownloads }}</strong></td>
                 </tr>
             </tfoot>
         </table>

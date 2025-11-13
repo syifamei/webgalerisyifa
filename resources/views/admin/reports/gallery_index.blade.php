@@ -99,9 +99,7 @@
                 <tfoot class="table-light">
                     <tr>
                         <th colspan="5" class="text-end">TOTAL USER AKTIF:</th>
-                        <th class="text-center">
-                            <span class="badge bg-primary fs-6">{{ $summary['total_users'] }}</span>
-                        </th>
+                        <th class="text-center">{{ $summary['total_users'] }}</th>
                     </tr>
                 </tfoot>
             </table>
@@ -135,19 +133,9 @@
                     <tr>
                         <td>{{ $index + 1 }}</td>
                         <td><strong>{{ $stat['nama'] }}</strong></td>
-                        <td class="text-center">
-                            <span class="badge bg-info fs-6">{{ $stat['total_fotos'] }} foto</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-success fs-6">
-                                <i class="fas fa-heart me-1"></i>{{ $stat['total_likes'] }}
-                            </span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge bg-warning text-dark fs-6">
-                                <i class="fas fa-download me-1"></i>{{ $stat['total_downloads'] }}
-                            </span>
-                        </td>
+                        <td class="text-center">{{ $stat['total_fotos'] }} foto</td>
+                        <td class="text-center">{{ $stat['total_likes'] }}</td>
+                        <td class="text-center">{{ $stat['total_downloads'] }}</td>
                     </tr>
                     @empty
                     <tr>
@@ -158,19 +146,9 @@
                 <tfoot class="table-light">
                     <tr>
                         <th colspan="2" class="text-end">TOTAL KESELURUHAN:</th>
-                        <th class="text-center">
-                            <span class="badge bg-info fs-6">{{ $summary['total_photos'] }} foto</span>
-                        </th>
-                        <th class="text-center">
-                            <span class="badge bg-success fs-6">
-                                <i class="fas fa-heart me-1"></i>{{ $summary['total_likes'] }}
-                            </span>
-                        </th>
-                        <th class="text-center">
-                            <span class="badge bg-warning text-dark fs-6">
-                                <i class="fas fa-download me-1"></i>{{ $summary['total_downloads'] }}
-                            </span>
-                        </th>
+                        <th class="text-center">{{ $summary['total_photos'] }} foto</th>
+                        <th class="text-center">{{ $summary['total_likes'] }}</th>
+                        <th class="text-center">{{ $summary['total_downloads'] }}</th>
                     </tr>
                 </tfoot>
             </table>

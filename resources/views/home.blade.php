@@ -519,12 +519,12 @@
                     <div class="video-wrapper-small">
                         <h6 class="text-center mb-2 text-primary">
                             <i class="fas fa-play-circle me-1"></i>
-                            Video Profil SMKN 4 Bogor
+                            Video SMKN 4 Bogor
                         </h6>
                         <div class="ratio ratio-16x9">
                             <iframe 
                                 src="https://www.youtube.com/embed/N6cmqCbQllo?si=aed4uau0OQ9UbAz9" 
-                                title="Video Profil SMKN 4 Bogor" 
+                                title="Video SMKN 4 Bogor" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                 referrerpolicy="strict-origin-when-cross-origin" 

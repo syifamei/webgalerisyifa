@@ -30,11 +30,7 @@
                                     <i class="fas fa-user"></i>
                                 </div>
                                 <div>
-                                    <h6 class="mb-1">{{ $p->username }}</h6>
-                                    <small class="text-muted">
-                                        ID: {{ $p->id }} • 
-                                        Dibuat: {{ $p->created_at->format('d M Y H:i') }}
-                                    </small>
+                                    <h6 class="mb-0">{{ $p->username }}</h6>
                                 </div>
                             </div>
                             
